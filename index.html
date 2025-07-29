@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="Address Book f.png" alt="Logo">
+            <h1>Address Book</h1>
+        </div>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <ul>
+                <li><button id="addContactBtn" class="btn primary">Add Contact</button></li>
+                <li><input type="text" id="search" class="search-input" placeholder="Search..."></li>
+                <li>
+                    <label for="sort">Sort By:</label>
+                    <select id="sort" class="sort-select">
+                        <option value="name">Name</option>
+                        <option value="phone">Phone</option>
+                        <option value="email">Email</option>
+                    </select>
+                </li>
+            </ul>
+        </aside>
+        <section class="content">
+            <div id="contactList"></div>
+            <div id="pagination">
+                <button id="prevPage" class="btn secondary">Previous</button>
+                <span id="pageInfo">Page 1 of 1</span>
+                <button id="nextPage" class="btn secondary">Next</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2 id="modalTitle">Add Contact</h2>
+            <form id="contactForm">
+                <input type="hidden" id="contactId">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="input-field" required>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" class="input-field" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="input-field" required>
+                <button type="submit" id="saveContactBtn" class="btn primary">Save Contact</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="contactViewModal" class="modal">
+        <div class="modal-content">
+            <span id="closeViewModal" class="close">&times;</span>
+            <h2>Contact Details</h2>
+            <div id="viewContactDetails">
+                <div class="detail-item">
+                    <span class="detail-label">Serial Number:</span>
+                    <span id="viewContactSerial"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Name:</span>
+                    <span id="viewContactName"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Phone:</span>
+                    <span id="viewContactPhone"></span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Email:</span>
+                    <span id="viewContactEmail"></span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button id="editContactBtn" class="btn secondary">Edit</button>
+                <button id="deleteContactBtn" class="btn danger">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Deletion</h2>
+            <p>Are you sure you want to delete this contact?</p>
+            <div class="modal-buttons">
+                <button id="confirmDeleteBtn" class="btn danger">Delete</button>
+                <button id="cancelDeleteBtn" class="btn secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
